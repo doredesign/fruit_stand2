@@ -1,0 +1,11 @@
+<%= @state[:user][:name] %>'s Inventory on <%= display_date(today) %>
+
+Cash: $<%= @state[:user][:balance] %>
+<% @state[:user][:inventory].each do |crop_name, lots| %>
+<%= crop_name %>:
+
+Lot ID | Weight | Expires on
+-------|--------|-----------<% lots.each do |lot| %>
+<%= lot.id.to_s.ljust(3, " ") %>    | <%= lot.weight.to_s.ljust(3, " ") %>    | <%= display_date(lot.expires_on) %><% end %>
+<% end %>
+Press enter to go back home.

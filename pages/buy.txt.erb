@@ -1,0 +1,3 @@
+<%= @state[:error] %>What would you like to buy?
+<% @state[:available_to_buy].each_with_index do |crop, index| %><%= index + 1 %>. <%= crop.name %> @ $<%= crop.current_price %>/lb
+<% end %><%= @state[:available_to_buy].count + 1 %>. Nothing. I'm done here.
